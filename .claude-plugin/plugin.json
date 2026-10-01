@@ -1,0 +1,19 @@
+{
+  "name": "drift",
+  "version": "0.1.0",
+  "description": "Are you moving or hiding in the dark? Watches the session for shipped work (commits, pushes, deploys, passing tests) against edits to tooling, config and docs, and says so in one quiet line when you have been in the dark too long. Zero model tokens, no network, nothing leaves your machine.",
+  "author": {
+    "name": "Asmir Khan"
+  },
+  "license": "MIT",
+  "keywords": ["drift", "progress", "mod", "productivity"],
+  "userConfig": {
+    "darkPatterns": {
+      "type": "string",
+      "title": "Dark patterns",
+      "description": "Comma separated globs for files that count as the dark (tooling, config, docs, plans). Leave empty to use the built in list; set it to replace that list. Example: CLAUDE.md, .claude/**, *.config.*, docs/**/*.md",
+      "required": false,
+      "default": ""
+    }
+  }
+}

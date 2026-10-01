@@ -1,0 +1,4 @@
+{
+  "description": "drift: counts what shipped against edits to tooling, config and docs, from tool calls only. A tool.call hook reads each result, a prompt.submit and turn.complete hook keep the active clock, an AbovePrompt hook draws one quiet line when a threshold is crossed, and /drift prints the receipt. Nothing is sent anywhere.",
+  "modules": ["./register.ts"]
+}

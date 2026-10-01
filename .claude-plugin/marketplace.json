@@ -1,0 +1,14 @@
+{
+  "name": "drift",
+  "description": "Mods that show whether a Claude Code session is moving or hiding in the dark.",
+  "owner": {
+    "name": "Asmir Khan"
+  },
+  "plugins": [
+    {
+      "name": "drift",
+      "source": "./",
+      "description": "Are you moving or hiding in the dark? Shows what shipped against what you only tidied. No model tokens, no network."
+    }
+  ]
+}
