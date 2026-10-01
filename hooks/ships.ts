@@ -334,3 +334,31 @@ export function shipsIn(command: string): ShipHit[] {
 
   return hits
 }
+
+/**
+ * The message of a `git commit` command: what follows each `-m`, `-am` or
+ * `--message`, joined with a space. Empty when the commit took its message
+ * from elsewhere (`--no-edit`, `-F`, the editor).
+ */
+export function commitMessageOf(text: string): string {
+  const words = wordsOf(text)
+  const parts: string[] = []
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i] as string
+    const inline = /^--message=(.*)$/s.exec(word)
+
+    if (inline) {
+      parts.push(inline[1] as string)
+    } else if (/^-[A-Za-z]*m$/.test(word) || word === '--message') {
+      const value = words[i + 1]
+
+      if (value !== undefined) {
+        parts.push(value)
+        i++
+      }
+    }
+  }
+
+  return parts.join(' ')
+}
