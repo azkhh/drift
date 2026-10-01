@@ -63,7 +63,7 @@ docs/**/*.md       **/docs/**/*.md     plan.md  notes.md  todo.md  roadmap.md  r
 *.lock  *.lockb    package-lock.json   pnpm-lock.yaml     go.sum
 ```
 
-The list lives in one place, `hooks/paths.ts`. To replace it, set the plugin option **Dark patterns** (a row for this plugin in `/config`) to a comma separated list of globs. A non empty value replaces the built in list, it does not add to it.
+The list lives in one place, `hooks/paths.ts`. To replace it, set the plugin option **Dark patterns** (`/plugin configure drift@drift`, or the row for this plugin in `/config`) to a comma separated list of globs. The install prints a note that one option is not set yet; it is optional. A non empty value replaces the built in list, it does not add to it.
 
 ## What the mod events can and cannot see
 
