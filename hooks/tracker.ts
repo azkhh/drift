@@ -59,7 +59,7 @@ export type Project = {
   live: Live
 }
 
-function emptyLive(): Live {
+export function emptyLive(): Live {
   return {
     activeSinceShipMs: 0,
     window: [],
@@ -83,6 +83,61 @@ function emptyDay(): Day {
 
 export function emptyProject(): Project {
   return { enabled: true, days: {}, live: emptyLive() }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+/**
+ * A project as the store held it, made whole: a field an older version never
+ * wrote, or a store edited by hand, falls back to its empty value. Never
+ * throws.
+ */
+export function reviveProject(raw: unknown): Project {
+  const fresh = emptyProject()
+
+  if (!isRecord(raw)) {
+    return fresh
+  }
+
+  const days: Record<string, Day> = {}
+
+  if (isRecord(raw.days)) {
+    for (const [key, value] of Object.entries(raw.days)) {
+      if (isRecord(value)) {
+        const base = emptyDay()
+
+        days[key] = {
+          ...base,
+          ...value,
+          ships: { ...base.ships, ...(isRecord(value.ships) ? value.ships : {}) },
+          churn: Array.isArray(value.churn) ? (value.churn as string[]) : [],
+        }
+      }
+    }
+  }
+
+  const live = isRecord(raw.live) ? raw.live : {}
+  const base = emptyLive()
+
+  return {
+    enabled: raw.enabled !== false,
+    goal: isRecord(raw.goal) ? (raw.goal as unknown as Goal) : undefined,
+    days,
+    live: {
+      ...base,
+      ...live,
+      window: Array.isArray(live.window) ? (live.window as number[]) : [],
+      fileEdits: isRecord(live.fileEdits)
+        ? (live.fileEdits as Record<string, number>)
+        : {},
+      announced: {
+        ...base.announced,
+        ...(isRecord(live.announced) ? live.announced : {}),
+      },
+    },
+  }
 }
 
 /**

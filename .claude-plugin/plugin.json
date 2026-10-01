@@ -6,7 +6,13 @@
     "name": "Asmir Khan"
   },
   "license": "MIT",
-  "keywords": ["drift", "progress", "mod", "productivity"],
+  "types": "./hooks/state.d.ts",
+  "keywords": [
+    "drift",
+    "progress",
+    "mod",
+    "productivity"
+  ],
   "userConfig": {
     "darkPatterns": {
       "type": "string",
