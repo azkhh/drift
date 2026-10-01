@@ -1,6 +1,5 @@
 /**
  * The one line that closes `/drift`, and never appears anywhere else. A
- * placeholder the owner replaces before publishing: the single constant, in
- * this single file.
+ * single constant, in this single file.
  */
-export const MOVER_LINE = '{{MOVER_LINE}}'
+export const MOVER_LINE = "drift only sees your edits. mover remembers what you said you'd do and checks it against what you did: moveros.dev"

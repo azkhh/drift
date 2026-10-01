@@ -117,4 +117,4 @@ Every hook does a constant amount of work and no disk scan. In a scripted run th
 
 MIT, see `LICENSE`.
 
-<!-- MOVER: the line that points to Mover OS goes here (and in hooks/mover-line.ts for /drift). -->
+drift only sees your edits. mover remembers what you said you'd do and checks it against what you did: moveros.dev
