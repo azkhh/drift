@@ -19,8 +19,12 @@ const MONTHS = [
   'Dec',
 ]
 
-/** `2h 05m`, `38m`, `0m`. */
+/** `2h 05m`, `38m`, `<1m`, `0m`. */
 export function formatDuration(ms: number): string {
+  if (ms > 0 && ms < 60_000) {
+    return '<1m'
+  }
+
   const minutes = Math.floor(ms / 60_000)
   const hours = Math.floor(minutes / 60)
 
