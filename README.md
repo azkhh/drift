@@ -15,11 +15,11 @@ Needs Claude Code 2.1.287 or later (mods are on by default from that version).
 ## Install
 
 ```
-claude plugin marketplace add <owner>/<repo>
+claude plugin marketplace add azkhh/drift
 claude plugin install drift@drift
 ```
 
-Or from inside Claude Code: `/plugin`, add the marketplace `<owner>/<repo>`, install `drift`. Restart the session, then run `/drift`.
+Or from inside Claude Code: `/plugin`, add the marketplace `azkhh/drift`, install `drift`. Restart the session, then run `/drift`.
 
 To try it from a clone without installing:
 

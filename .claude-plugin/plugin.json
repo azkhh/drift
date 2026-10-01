@@ -5,6 +5,8 @@
   "author": {
     "name": "Asmir Khan"
   },
+  "homepage": "https://github.com/azkhh/drift",
+  "repository": "https://github.com/azkhh/drift",
   "license": "MIT",
   "types": "./hooks/state.d.ts",
   "keywords": [
